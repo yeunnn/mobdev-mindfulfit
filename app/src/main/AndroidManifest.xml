@@ -12,16 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobdevprojectmindfulfit"
         tools:targetApi="31">
+
+        <!--May need to remove launchMode!!!-->
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:launchMode="singleTop"
             android:label="@string/app_name">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.profile.ProfileSetupActivity" />
     </application>
 
 </manifest>
