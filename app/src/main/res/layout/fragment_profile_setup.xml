@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
+            android:backgroundTint="@color/grey"
             android:hint="Enter a username" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
+            android:backgroundTint="@color/grey"
             android:hint="Enter your daily water intake (ml) goal" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="30dp"
+            android:backgroundTint="@color/grey"
             android:hint="Enter your daily step goal" />
     </com.google.android.material.textfield.TextInputLayout>
 
