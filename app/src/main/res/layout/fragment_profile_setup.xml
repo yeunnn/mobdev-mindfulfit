@@ -8,12 +8,13 @@
     android:layout_marginRight="20dp">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/background_color"
         android:layout_width="match_parent"
-        android:layout_height="246dp"
-        app:srcCompat="@drawable/green_rectangle_background"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-63dp" />
+        android:layout_height="181dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_rectangle_background" />
 
     <ImageView
         android:id="@+id/user_avatar"
@@ -109,7 +110,9 @@
         tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="471dp"
         android:backgroundTint="@color/green"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" 
+        app:layout_constraintTop_toBottomOf="@id/step_goal_input"
+        android:layout_marginTop="20dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
