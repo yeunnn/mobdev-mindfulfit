@@ -4,17 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.water.WaterTrackerFragment">
 
+    <FrameLayout
+        android:id="@+id/circularProgressContainer"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp">
+
+        <ProgressBar
+            android:id="@+id/circularProgress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="false"
+            android:max="3000"
+            android:progress="1500"
+            android:progressDrawable="@drawable/circular_progress_bar_water"
+            android:rotation="30" />
+
+        <ImageView
+            android:id="@+id/icon_inside_progress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_water"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:alpha="0.65"/>
+    </FrameLayout>
+
+
     <TextView
-        android:id="@+id/text_water_tracker"
+        android:id="@+id/water_intake_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1,500 mL"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        app:layout_constraintTop_toTopOf="@id/circularProgressContainer"
+        app:layout_constraintBottom_toBottomOf="@id/circularProgressContainer"
+        app:layout_constraintStart_toStartOf="@id/circularProgressContainer"
+        app:layout_constraintEnd_toEndOf="@id/circularProgressContainer"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/water_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Daily Goal: 3,000 mL"
+        android:textColor="@color/blue"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circularProgressContainer" />
+
+    <TextView
+        android:id="@+id/title_of_page_water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Water Tracker"
+        android:textColor="@color/blue"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/circularProgressContainer" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="Water Tracker"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/water_goal"
+        android:paddingTop="32dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_water_intake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_background">
+
+            <ImageView
+                android:id="@+id/icon_water_intake"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_drinking"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="@color/blue" />
+
+            <TextView
+                android:id="@+id/time_of_water_intake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LAST DRANK: 30 mins ago"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="75dp"
+                tools:layout_editor_absoluteY="10dp"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_water_reminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_water_intake"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_background">
+
+            <ImageView
+                android:id="@+id/icon_water_reminder"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_reminder_water"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="@color/blue" />
+
+            <TextView
+                android:id="@+id/text_water_reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="REMINDER: Drink water every hour"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/icon_water_reminder"
+                app:layout_constraintStart_toEndOf="@id/icon_water_reminder"
+                app:layout_constraintTop_toTopOf="@id/icon_water_reminder"
+                app:layout_constraintVertical_bias="0.384" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Button Layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_water_log_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_water_reminder"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/water_intake_log_button"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Tap to Log Water Intake"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/blue"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="32dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

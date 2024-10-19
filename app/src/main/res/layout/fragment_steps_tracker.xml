@@ -4,17 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.steps.StepsTrackerFragment">
 
+    <!-- Circular ProgressBar for step count -->
+
+
+    <!-- Steps Count in the center of the circular ProgressBar -->
+
+    <ProgressBar
+        android:id="@+id/circularProgress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="80dp"
+        android:indeterminate="false"
+        android:max="6000"
+        android:progress="4805"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:rotation="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/text_steps_tracker"
+        android:id="@+id/steps_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4,805 steps"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        app:layout_constraintTop_toTopOf="@id/circularProgress"
+        app:layout_constraintBottom_toBottomOf="@id/circularProgress"
+        app:layout_constraintStart_toStartOf="@id/circularProgress"
+        app:layout_constraintEnd_toEndOf="@id/circularProgress"
+        android:textAlignment="center"/>
+
+    <!-- Step Goal beneath the steps count -->
+
+    <TextView
+        android:id="@+id/steps_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Set Goal: 6000 steps"
+        android:textColor="@color/green"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circularProgress" />
+
+    <TextView
+        android:id="@+id/title_of_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Steps Tracker"
+        android:textColor="@color/green"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/circularProgress" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="Steps Tracker"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/steps_goal"
+        android:paddingTop="32dp">
+
+        <!-- Steps Taken Layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_steps_taken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_background"> <!-- Set the background here -->
+
+            <ImageView
+                android:id="@+id/icon_time_of_steps"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_clock"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/time_of_steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIME: 1 hr 36 mins"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="75dp"
+                tools:layout_editor_absoluteY="10dp"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Distance Covered Layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_distance_covered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_steps_taken"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_background"> <!-- Set the background here -->
+
+            <ImageView
+                android:id="@+id/icon_distance_covered"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_distance"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="@color/green" />
+
+            <TextView
+                android:id="@+id/text_distance_covered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="DISTANCE COVERED: 7.2 Km"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/icon_distance_covered"
+                app:layout_constraintStart_toEndOf="@id/icon_distance_covered"
+                app:layout_constraintTop_toTopOf="@id/icon_distance_covered"
+                app:layout_constraintVertical_bias="0.384" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_calories_burned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_distance_covered"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_background"> <!-- Set the background here -->
+
+            <ImageView
+                android:id="@+id/icon_calories_burned"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_calories"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+            app:tint="@color/green" />
+
+            <TextView
+                android:id="@+id/text_calories_burned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="CALORIES BURNED: 350 kcal"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/icon_calories_burned"
+                app:layout_constraintStart_toEndOf="@id/icon_calories_burned"
+                app:layout_constraintTop_toTopOf="@id/icon_calories_burned"
+                app:layout_constraintVertical_bias="0.384" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
