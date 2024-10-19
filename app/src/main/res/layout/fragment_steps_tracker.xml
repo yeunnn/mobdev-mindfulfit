@@ -101,12 +101,14 @@
                 android:id="@+id/time_of_steps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="TIME: 1 hr 36 mins"
                 android:textColor="@color/green"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="75dp"
-                tools:layout_editor_absoluteY="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/icon_time_of_steps"
+                app:layout_constraintStart_toEndOf="@id/icon_time_of_steps"
+                app:layout_constraintTop_toTopOf="@id/icon_time_of_steps"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

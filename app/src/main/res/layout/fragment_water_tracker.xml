@@ -110,12 +110,14 @@
                 android:id="@+id/time_of_water_intake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:text="LAST DRANK: 30 mins ago"
                 android:textColor="@color/blue"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="75dp"
-                tools:layout_editor_absoluteY="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/icon_water_intake"
+                app:layout_constraintStart_toEndOf="@id/icon_water_intake"
+                app:layout_constraintTop_toTopOf="@id/icon_water_intake"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
