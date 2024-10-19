@@ -7,4 +7,9 @@
     <string name="water_tracker">Water Tracker</string>
     <string name="daily_motivational_content">Daily Motivational Content</string>
     <string name="humor_for_wellness">Humor for Wellness</string>
+    <string name="favorite_button_desc">Favorite this quote</string>
+    <string name="share_button_desc">Share this quote</string>
+    <string name="reaction_lol_button_desc">Reaction lol</string>
+    <string name="reaction_meh_button_desc">Reaction meh</string>
+
 </resources>

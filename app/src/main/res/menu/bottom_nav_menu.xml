@@ -18,12 +18,12 @@
 
     <item
         android:id="@+id/navigation_daily_motivational_content"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_motivation_icon"
         android:title="@string/daily_motivational_content" />
 
     <item
         android:id="@+id/navigation_humor_for_wellness"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_humor_icon"
         android:title="@string/humor_for_wellness" />
 
 </menu>
