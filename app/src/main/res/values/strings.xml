@@ -3,4 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="steps_tracker">Steps Tracker</string>
+    <string name="water_tracker">Water Tracker</string>
+    <string name="daily_motivational_content">Daily Motivational Content</string>
+    <string name="humor_for_wellness">Humor for Wellness</string>
 </resources>

@@ -7,13 +7,23 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_steps_tracker"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:title="@string/steps_tracker" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_water_tracker"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/water_tracker" />
+
+    <item
+        android:id="@+id/navigation_daily_motivational_content"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/daily_motivational_content" />
+
+    <item
+        android:id="@+id/navigation_humor_for_wellness"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/humor_for_wellness" />
 
 </menu>

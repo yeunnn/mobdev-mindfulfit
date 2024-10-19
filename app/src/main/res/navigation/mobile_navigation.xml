@@ -12,14 +12,26 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.s20.mobdev_project_mindfulfit.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_steps_tracker"
+        android:name="com.example.s20.mobdev_project_mindfulfit.ui.steps.StepsTrackerFragment"
+        android:label="@string/steps_tracker"
+        tools:layout="@layout/fragment_steps_tracker" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.s20.mobdev_project_mindfulfit.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_water_tracker"
+        android:name="com.example.s20.mobdev_project_mindfulfit.ui.water.WaterTrackerFragment"
+        android:label="@string/water_tracker"
+        tools:layout="@layout/fragment_water_tracker" />
+
+    <fragment
+        android:id="@+id/navigation_daily_motivational_content"
+        android:name="com.example.s20.mobdev_project_mindfulfit.ui.motivation.DailyMotivationalContentFragment"
+        android:label="@string/daily_motivational_content"
+        tools:layout="@layout/fragment_daily_motivational_content" />
+
+    <fragment
+        android:id="@+id/navigation_humor_for_wellness"
+        android:name="com.example.s20.mobdev_project_mindfulfit.ui.humor.HumorForWellnessFragment"
+        android:label="@string/humor_for_wellness"
+        tools:layout="@layout/fragment_humor_for_wellness" />
 </navigation>
