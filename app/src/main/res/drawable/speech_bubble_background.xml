@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main rounded rectangle -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F0F0F0" /> <!-- Light gray color -->
+            <corners android:radius="16dp" />
+            <padding
+                android:left="8dp"
+                android:top="8dp"
+                android:right="8dp"
+                android:bottom="16dp" />
+        </shape>
+    </item>
+
+    <!-- Triangle tail -->
+    <item
+        android:bottom="0dp"
+        android:right="24dp">
+        <rotate
+            android:fromDegrees="45">
+            <shape android:shape="rectangle">
+                <solid android:color="#F0F0F0" /> <!-- Light gray color -->
+                <size
+                    android:width="12dp"
+                    android:height="12dp" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>
