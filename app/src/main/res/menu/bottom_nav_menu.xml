@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_steps_tracker"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_step_icon_1"
         android:title="@string/steps_tracker" />
 
     <item
         android:id="@+id/navigation_water_tracker"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_watericon_1"
         android:title="@string/water_tracker" />
 
     <item
