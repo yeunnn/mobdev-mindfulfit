@@ -4,56 +4,96 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.s20.mobdev_project_mindfulfit.R
+import com.example.s20.mobdev_project_mindfulfit.data.DatabaseHelper
+import com.example.s20.mobdev_project_mindfulfit.data.HumorRepository
 import com.example.s20.mobdev_project_mindfulfit.databinding.FragmentHumorForWellnessBinding
+import com.example.s20.mobdev_project_mindfulfit.network.APIClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HumorForWellnessFragment : Fragment() {
 
     private var _binding: FragmentHumorForWellnessBinding? = null
     private val binding get() = _binding!!
-    private var isLolClicked = false
-    private var isMehClicked = false
+    private lateinit var humorRepository: HumorRepository
+    private lateinit var apiClient: APIClient
+
+    private val humorTips = listOf(
+        "Share a joke with someone today!",
+        "Watch a comedy movie tonight!",
+        "Start your day with a smile.",
+        "Tell someone your favorite joke.",
+        "Laugh—it’s good for the soul!"
+    )
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View {
-        val humorViewModel =
-            ViewModelProvider(this).get(HumorForWellnessViewModel::class.java)
-
         _binding = FragmentHumorForWellnessBinding.inflate(inflater, container, false)
-
-        // Set up LOL reaction button click listener
-        binding.btnReactionLol.setOnClickListener {
-            isLolClicked = !isLolClicked
-            if (isLolClicked) {
-                binding.btnReactionLol.setImageResource(R.drawable.ic_lol)
-            } else {
-                binding.btnReactionLol.setImageResource(R.drawable.ic_lol_outline)
-            }
-        }
-
-        // Set up Meh reaction button click listener
-        binding.btnReactionMeh.setOnClickListener {
-            isMehClicked = !isMehClicked
-            if (isMehClicked) {
-                binding.btnReactionMeh.setImageResource(R.drawable.ic_meh)
-            } else {
-                binding.btnReactionMeh.setImageResource(R.drawable.ic_meh_outline)
-            }
-        }
-
         val root: View = binding.root
 
-        //val textView: TextView = binding.textHumorForWellness
-        //.text.observe(viewLifecycleOwner) {
-        //    textView.text = it
-        //}
+        val dbHelper = DatabaseHelper(requireContext())
+        humorRepository = HumorRepository(dbHelper)
+        apiClient = APIClient()
+
+        setupUI()
+
         return root
+    }
+
+    private fun setupUI() {
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
+        val existingJoke = humorRepository.getJoke(currentDate)
+        if (existingJoke != null) {
+            displayJoke(existingJoke.first, existingJoke.second)
+        } else {
+            toggleVisibility(isJokeDisplayed = false)
+        }
+
+        // Fetch Humor Button
+        binding.btnFetchHumor.setOnClickListener {
+            CoroutineScope(Dispatchers.Main).launch {
+                fetchAndSaveJoke(currentDate)
+            }
+        }
+    }
+
+    private suspend fun fetchAndSaveJoke(currentDate: String) {
+        val fetchedJoke = withContext(Dispatchers.IO) { apiClient.fetchJoke() }
+
+        if (fetchedJoke != null) {
+            humorRepository.saveJoke(fetchedJoke, currentDate)
+            val streak = humorRepository.getStreak()
+            displayJoke(fetchedJoke, streak)
+        } else {
+            Toast.makeText(requireContext(), "Failed to fetch joke. Try again.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun displayJoke(joke: String, streak: Int) {
+        binding.textJoke.text = joke
+        binding.textLaughStreak.text = "You’ve read jokes for $streak days in a row!"
+        binding.textHumorTip.text = "Humor Tip: ${humorTips.random()}"
+        toggleVisibility(isJokeDisplayed = true)
+    }
+
+    private fun toggleVisibility(isJokeDisplayed: Boolean) {
+        // Show or hide views based on whether the daily humor has been displayed
+        binding.btnFetchHumor.visibility = if (isJokeDisplayed) View.GONE else View.VISIBLE
+        binding.jokeDisplayContainer.visibility = if (isJokeDisplayed) View.VISIBLE else View.GONE
+        binding.reactionLayout.visibility = if (isJokeDisplayed) View.VISIBLE else View.GONE
+        binding.textHumorTip.visibility = if (isJokeDisplayed) View.VISIBLE else View.GONE
+        binding.textLaughStreak.visibility = if (isJokeDisplayed) View.VISIBLE else View.GONE
+        binding.btnShareJoke.visibility = if (isJokeDisplayed) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

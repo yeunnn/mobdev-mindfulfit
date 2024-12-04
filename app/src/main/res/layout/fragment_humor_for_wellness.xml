@@ -8,142 +8,155 @@
     android:background="@color/white"
     tools:context=".ui.humor.HumorForWellnessFragment">
 
-    <!-- App Logo or Icon -->
-    <ImageView
-        android:id="@+id/img_humor_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ic_humor_image"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Today's Humor for Wellness"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        app:layout_constraintTop_toBottomOf="@+id/img_humor_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Joke Display Area -->
-    <LinearLayout
-        android:id="@+id/joke_display_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Image of Person Saying the Joke -->
-        <ImageView
-            android:id="@+id/img_person_saying_joke"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_person_saying_joke" />
-
-        <!-- Speech Bubble for Joke -->
-        <TextView
-            android:id="@+id/text_joke"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:padding="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/speech_bubble_background"
-            android:text="Why don't skeletons fight each other? Because they don't have the guts."
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:gravity="center" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
 
-    <!-- Reaction Icons -->
-    <LinearLayout
-        android:id="@+id/reaction_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/joke_display_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+            <!-- App Logo or Icon -->
+            <ImageView
+                android:id="@+id/img_humor_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_humor_image" />
 
-        <ImageButton
-            android:id="@+id/btn_reaction_lol"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_lol_outline"
-            android:background="@null"
-            android:contentDescription="@string/reaction_lol_button_desc"
-            app:tint="@color/green" />
+            <!-- Title -->
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Today's Humor for Wellness"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:layout_gravity="center" />
 
-        <ImageButton
-            android:id="@+id/btn_reaction_meh"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/ic_meh_outline"
-            android:background="@null"
-            android:contentDescription="@string/reaction_meh_button_desc"
-            app:tint="@color/green" />
-    </LinearLayout>
+            <!-- Joke Display Area -->
+            <LinearLayout
+                android:id="@+id/joke_display_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginHorizontal="24dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-    <!-- Daily Humor Tip -->
-    <TextView
-        android:id="@+id/text_humor_tip"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="40dp"
-        android:padding="12dp"
-        android:background="@drawable/rounded_background"
-        android:text="Humor Tip: Share a joke with someone today!"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/reaction_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                <!-- Image of Person Saying the Joke -->
+                <ImageView
+                    android:id="@+id/img_person_saying_joke"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_person_saying_joke" />
 
-    <!-- Streak Information -->
-    <TextView
-        android:id="@+id/text_laugh_streak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="You’ve read jokes for 3 days in a row!"
-        android:textSize="14sp"
-        android:textColor="@color/gray"
-        app:layout_constraintTop_toBottomOf="@+id/text_humor_tip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                <!-- Speech Bubble for Joke -->
+                <TextView
+                    android:id="@+id/text_joke"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:padding="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/speech_bubble_background"
+                    android:text="Why don't skeletons fight each other? Because they don't have the guts."
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:gravity="center" />
+            </LinearLayout>
 
-    <!-- Share Button -->
-    <Button
-        android:id="@+id/btn_share_joke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Share Joke"
-        android:backgroundTint="@color/green"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/text_laugh_streak"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <!-- Reaction Icons -->
+            <LinearLayout
+                android:id="@+id/reaction_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
 
+                <ImageButton
+                    android:id="@+id/btn_reaction_lol"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_lol_outline"
+                    android:background="@null"
+                    android:contentDescription="@string/reaction_lol_button_desc"
+                    app:tint="@color/green" />
+
+                <ImageButton
+                    android:id="@+id/btn_reaction_meh"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_meh_outline"
+                    android:background="@null"
+                    android:contentDescription="@string/reaction_meh_button_desc"
+                    app:tint="@color/green" />
+            </LinearLayout>
+
+            <!-- Daily Humor Tip -->
+            <TextView
+                android:id="@+id/text_humor_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="40dp"
+                android:padding="12dp"
+                android:background="@drawable/rounded_background"
+                android:text="Humor Tip: Share a joke with someone today!"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <!-- Streak Information -->
+            <TextView
+                android:id="@+id/text_laugh_streak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="You’ve read jokes for 3 days in a row!"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- Share Button -->
+            <Button
+                android:id="@+id/btn_share_joke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Share Joke"
+                android:backgroundTint="@color/green"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- Fetch Humor Button -->
+            <Button
+                android:id="@+id/btn_fetch_humor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/green"
+                android:text="Get Today's Humor"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- Spacer for extra scrolling -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
