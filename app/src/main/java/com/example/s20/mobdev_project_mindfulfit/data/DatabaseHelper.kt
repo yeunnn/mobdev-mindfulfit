@@ -33,7 +33,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             quote TEXT,
             date TEXT UNIQUE,
-            streak INTEGER
+            streak INTEGER,
+            is_favorite INTEGER DEFAULT 0
         )
         """
         db.execSQL(CREATE_QUOTES_TABLE)
@@ -44,7 +45,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 joke TEXT,
                 date TEXT UNIQUE,
-                streak INTEGER
+                streak INTEGER,
+                reaction_lol INTEGER DEFAULT 0,
+                reaction_meh INTEGER DEFAULT 0
             )
         """
         db.execSQL(CREATE_JOKES_TABLE)

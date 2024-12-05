@@ -37,4 +37,19 @@ class QuotesRepository(private val dbHelper: DatabaseHelper) {
         }
         return 0
     }
+
+    fun saveFavoriteState(quote: String, isFavorite: Boolean) {
+        val db: SQLiteDatabase = dbHelper.writableDatabase
+        val state = if (isFavorite) 1 else 0
+        db.execSQL("UPDATE quotes SET is_favorite = $state WHERE quote = ?", arrayOf(quote))
+    }
+
+    fun getFavoriteState(quote: String): Boolean {
+        val db: SQLiteDatabase = dbHelper.writableDatabase
+        val cursor = db.rawQuery("SELECT is_favorite FROM quotes WHERE quote = ?", arrayOf(quote))
+        val isFavorite = if (cursor.moveToFirst()) cursor.getInt(0) == 1 else false
+        cursor.close()
+        return isFavorite
+    }
+
 }

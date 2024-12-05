@@ -51,7 +51,7 @@
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/user_avatar"
+            android:src="@drawable/app_icon"
             android:paddingTop="5dp"/>
 
         <TextView
