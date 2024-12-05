@@ -114,7 +114,8 @@
                 android:text="You’ve read motivational quotes for 5 days straight!"
                 android:textSize="14sp"
                 android:textColor="@color/gray"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"/>
 
             <!-- Fetch Daily Quote Button -->
             <Button

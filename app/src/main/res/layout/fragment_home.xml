@@ -54,33 +54,43 @@
             android:src="@drawable/app_icon"
             android:paddingTop="5dp"/>
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/reminders_dashboard"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/green_rectangle_background"
-            android:text="Reminders"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
+            android:padding="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_name" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_name">
 
-        <TextView
-            android:id="@+id/reminders_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You have reached 50% of your water intake goal for today. Keep going and drink more water!"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reminders_dashboard"
-            android:layout_marginTop="-55dp"/>
+            <!-- Reminder Title -->
+            <TextView
+                android:id="@+id/reminders_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reminders"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Reminder Content -->
+            <TextView
+                android:id="@+id/reminders_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="You have reached 50% of your water intake goal for today. Keep going and drink more water! \nBe sure to log both your activities in the Steps and Water Tracker!"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reminders_title" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/progress_report"

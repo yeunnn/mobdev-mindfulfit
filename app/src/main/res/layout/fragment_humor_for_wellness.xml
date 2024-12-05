@@ -129,7 +129,8 @@
                 android:text="You’ve read jokes for 3 days in a row!"
                 android:textSize="14sp"
                 android:textColor="@color/gray"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"/>
 
             <!-- Share Button -->
             <Button

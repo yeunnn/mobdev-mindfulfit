@@ -193,10 +193,22 @@
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal" />
 
+            <!-- Tooltip Text -->
+            <TextView
+                android:id="@+id/tooltip_log_steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Log your step activity for the day by moving around!"
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center" />
+
             <!-- Spacer for extra scrolling -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="70dp" />
         </LinearLayout>
     </ScrollView>
 

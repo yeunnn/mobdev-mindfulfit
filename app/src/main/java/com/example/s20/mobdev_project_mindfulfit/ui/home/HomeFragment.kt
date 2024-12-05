@@ -125,11 +125,11 @@ class HomeFragment : Fragment() {
 
         binding.remindersContent.text = when {
             waterPercentage < 100 && stepPercentage < 100 ->
-                "You have reached $waterPercentage% of your water intake goal and $stepPercentage% of your step goal. Keep going!"
+                "You have reached $waterPercentage% of your water intake goal and $stepPercentage% of your step goal. Keep going! \nBe sure to log both your activities in the Steps and Water Tracker!"
             waterPercentage < 100 ->
-                "You have reached $waterPercentage% of your water intake goal. Keep going!"
+                "You have reached $waterPercentage% of your water intake goal. Keep going! \nBe sure to log both your activities in the Steps and Water Tracker!"
             stepPercentage < 100 ->
-                "You have reached $stepPercentage% of your step goal. Keep going!"
+                "You have reached $stepPercentage% of your step goal. Keep going! \nBe sure to log both your activities in the Steps and Water Tracker!"
             else ->
                 "Congratulations! You've completed your goals for today!"
         }

@@ -121,7 +121,7 @@ class HumorForWellnessFragment : Fragment() {
     private fun displayJoke(joke: String, streak: Int) {
         currentJoke = joke
         binding.textJoke.text = joke
-        binding.textLaughStreak.text = "You’ve read jokes for $streak days in a row!"
+        binding.textLaughStreak.text = "You’ve read jokes for $streak days in a row!  Check back tomorrow for another joke."
         binding.textHumorTip.text = "Humor Tip: ${humorTips.random()}"
         updateReactionIcons()
         toggleVisibility(isJokeDisplayed = true)

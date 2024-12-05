@@ -102,7 +102,7 @@ class DailyMotivationalContentFragment : Fragment() {
     private fun displayQuote(quote: String, streak: Int) {
         currentQuote = quote
         binding.textQuote.text = quote
-        binding.textStreak.text = "You've read motivational quotes for $streak days straight!"
+        binding.textStreak.text = "You've read motivational quotes for $streak days straight! Check back tomorrow for another quote."
         binding.textMindfulnessTip.text = mindfulnessTips.random()
         updateFavoriteIcon()
         toggleVisibility(isQuoteDisplayed = true)
