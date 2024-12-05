@@ -230,11 +230,125 @@
                 app:layout_constraintStart_toEndOf="@id/stepsCircularProgressFrame" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Weekly Report Header -->
+        <TextView
+            android:id="@+id/weeklyReportHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weekly Report (Past 7 Days)"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/stepsContainer"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Weekly Report Graphs -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weeklyReportContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/grey_rectangle_background"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/weeklyReportHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Weekly Report Content -->
+            <TextView
+                android:id="@+id/weeklyReportContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not enough data for Weekly Report. Keep progressing!"
+                android:textColor="@color/gray"
+                android:layout_marginTop="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone" />
+
+            <!-- Weekly Water Intake Bar Chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/weeklyWaterChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Weekly Steps Bar Chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/weeklyStepsChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toBottomOf="@id/weeklyWaterChart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Monthly Report Header -->
+        <TextView
+            android:id="@+id/monthlyReportHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Report (Past 30 Days)"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/weeklyReportContainer"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Monthly Report Graphs -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/monthlyReportContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/grey_rectangle_background"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/monthlyReportHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Monthly Report Content -->
+            <TextView
+                android:id="@+id/monthlyReportContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not enough data for Monthly Report. Keep progressing!"
+                android:textColor="@color/gray"
+                android:layout_marginTop="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone" />
+
+            <!-- Monthly Water Intake Bar Chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/monthlyWaterChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Monthly Steps Bar Chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/monthlyStepsChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toBottomOf="@id/monthlyWaterChart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <!-- Spacer to add more scrolling space -->
         <View
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:layout_constraintTop_toBottomOf="@id/stepsContainer"
+            app:layout_constraintTop_toBottomOf="@id/monthlyReportContainer"
             android:layout_marginTop="20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

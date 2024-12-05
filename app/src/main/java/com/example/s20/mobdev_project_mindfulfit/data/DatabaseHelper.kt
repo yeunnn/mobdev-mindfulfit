@@ -3,6 +3,10 @@ package com.example.s20.mobdev_project_mindfulfit.data
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -74,6 +78,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         )
         """
         db.execSQL(CREATE_DAILY_WATER_TABLE)
+
+        // Insert dummy data
+        //insertDummyData(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -101,4 +108,34 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
     // END - STEP TRACKER
 
+    private fun insertDummyData(db: SQLiteDatabase) {
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+
+        for (i in 0 until 35) {
+            val date = sdf.format(calendar.time)
+            val steps = (3000..10000).random()
+            val distance = steps * 0.0008 // Approx 0.8 meters per step
+            val calories = steps * 0.04 // Approx 0.04 kcal per step
+            val waterIntake = (500..3000).random()
+
+            // Insert into daily_steps
+            val insertStepsQuery = """
+                INSERT OR REPLACE INTO daily_steps (date, steps, distance, calories)
+                VALUES ('$date', $steps, $distance, $calories)
+            """
+            db.execSQL(insertStepsQuery)
+
+            // Insert into water_logs
+            val insertWaterQuery = """
+                INSERT OR REPLACE INTO water_logs (date, total_intake)
+                VALUES ('$date', $waterIntake)
+            """
+            db.execSQL(insertWaterQuery)
+
+            calendar.add(Calendar.DATE, -1) // Move to the previous day
+        }
+
+        Log.d("DatabaseHelper", "Dummy data inserted successfully")
+    }
 }
