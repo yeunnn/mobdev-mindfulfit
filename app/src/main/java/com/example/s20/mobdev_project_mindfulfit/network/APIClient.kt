@@ -12,7 +12,7 @@ class APIClient {
 
     private val client = OkHttpClient()
     private val apiUrl = "https://zenquotes.io/api/random"
-    private val jokeApiUrl = "https://v2.jokeapi.dev/joke/Any?type=single"
+    private val jokeApiUrl = "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single"
 
     suspend fun fetchDailyQuote(): String? = withContext(Dispatchers.IO) {
         try {
